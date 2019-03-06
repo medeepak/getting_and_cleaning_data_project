@@ -46,4 +46,4 @@ names(complete_data_set) <- sapply(names(complete_data_set), function(x) { tolow
 # first converting measurment columns to key value pairs and then finding average of each measurement for each subject and each activity
 # Thus formed tidy skinny dataset contains subject,activity, measurement and average value of that measurement for given subject and activity
 tidy_skinny_dataset <- gather(complete_data_set, measurement, value, -c('subject', 'activity')) %>% ddply(.(subject, activity, measurement), summarize, avg = mean(value))
-write.csv(tidy_skinny_dataset, "tidy_skinny_dataset.csv")
+write.table(tidy_skinny_dataset, "tidy_skinny_dataset.txt")
